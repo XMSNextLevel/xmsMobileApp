@@ -1,0 +1,105 @@
+<!--
+  Generated template for the AchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title style="margin-left:15%;">Ach Information</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form #achform="ngForm">
+
+      <ion-card *ngIf="isDataAvailable">
+          <ion-card-header *ngIf="isChecked">
+            Existing Ach Details
+          </ion-card-header>
+
+        <ion-card-content>
+          <div class="middle-section" *ngIf="isChecked">
+            <div class="section"> <span>Acct. Holder Name: </span><span style="font-size:14px;">{{accountHolderName}}</span></div>
+            <div class="section"> <span>Bank Name: </span><span style="font-size:14px;">{{bankName}}</span></div>
+            <div class="section"> <span>Account Type: </span><span style="font-size:14px;">{{accountType}}</span></div>
+            <div class="section"> <span>Account Number: </span><span style="font-size:14px;">{{accountNumber}}</span></div>
+            <div class="section"> <span>Routing Number: </span><span style="font-size:14px;">{{routingNumber}}</span></div>
+        </div>
+        <ion-item>
+            <ion-label>Use Bank Info. on File</ion-label>
+            <ion-checkbox name="isChecked" [(ngModel)]="isChecked"></ion-checkbox>
+        </ion-item>
+        </ion-card-content>
+
+      </ion-card>
+
+
+    <ion-card *ngIf="!isChecked">
+      <ion-card-header>
+        New Ach Details
+      </ion-card-header>
+
+
+      <ion-card-content>
+        <ion-list no-lines>
+
+          <ion-item class="input-items">
+            <ion-input name="accountholdername" required type="text" placeholder="Account Holder Name" text-center disabled={{isChecked}} class="inputs" [value]="achName" [(ngModel)]="achInfo.name"></ion-input>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-input name="bankname" required type="text" placeholder="Bank Name" text-center class="inputs" [value]="bankName" [(ngModel)]="achInfo.bankName" disabled={{isChecked}}></ion-input>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-select name="accounttype" required placeholder="Account Type" interface="popover" class="inputs" [(ngModel)]="achInfo.accountType" disabled={{isChecked}}>
+              <ion-option value="SAVINGS">SAVINGS</ion-option>
+              <ion-option value="CHECKING">CHECKING</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-input name="achnumber" required type="tel" maxlength="17" placeholder="Account Number" text-center class="inputs" [value]="accountNumber" [(ngModel)]="achInfo.accountNumber" disabled={{isChecked}}></ion-input>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-input name="routingnumber" required type="tel" maxlength="9" placeholder="Routing Number" text-center class="inputs" [value]="routingNumber" [(ngModel)]="achInfo.routingNumber" disabled={{isChecked}}></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card>
+      <ion-card-header>
+        Payment Details
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list no-lines>
+          <ion-item class="input-items">
+            <ion-label>Amount</ion-label>
+            <ion-input name="paymentAMount" type="number" required placeholder={{amountDue}} text-right class="inputs inputs-right" [value]="paymentAmount" [(ngModel)]="achInfo.paymentAmount">
+            </ion-input>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-label>Date</ion-label>
+            // need to set the min date here
+            <ion-input name="postingDate" type="number" placeholder={{todaysDateFormatted}} text-right class="inputs inputs-right" [value]="postingDate" [(ngModel)]="achInfo.postingDate" disabled="true">
+            </ion-input>
+            <!-- <ion-datetime displayFormat=“MM/DD/YYYY” placeholder={{todaysDate}}  min=“2017-07-01" max=“2018” class=“” [(ngModel)]=“paymentDate”></ion-datetime> -->
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card>
+      <ion-card-content>
+        <div>
+          <button ion-button round class="bottom-buttons-left" (click)="cancelAchInfo();">cancel</button>
+          <button ion-button round class="bottom-buttons-right" [disabled]="!achform.form.valid" (click)="achInformationSubmitted();">Submit</button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </form>
+
+</ion-content>

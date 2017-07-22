@@ -1,0 +1,53 @@
+<!--Generated template for the PaymentReviewPage page.
+
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
+
+<pdf-viewer    delegate-handle="my-pdf-container"    url={{decodedString}} scale="1"    show-toolbar="true"    ></pdf-viewer>
+
+
+<img ng-src="data:image/jpeg;base64,{{decodedString}}" id="photo-id"/>
+
+<img style='display:block; width:100px;height:100px;' id='base64image'
+       src='data:image/jpeg;base64, '{{decodedString}} />
+
+       <img data-ng-src="{{decodedString}}">
+
+           <img ng-show="imgURI !== undefined" ng-src="decodedString" style="text-align: center">
+
+           <img [src]="image" *ngIf="image" />
+
+-->
+
+<ion-header>
+<ion-navbar>
+  <ion-title style="text-align:center;">Document</ion-title>
+</ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content padding="true">
+  <div *ngIf="isHtml">
+    <h1>Document</h1>
+    <div [innerHTML]="image"></div>
+  </div>
+  <!-- <img src="{{image}}"> -->
+  <div *ngIf="isPdf">
+    <pdf-viewer [src]="image" [original-size]="false" [zoom]=".25" [show-all]="true" id="viewer" style="width:100%;height:100%;display:block;"></pdf-viewer>
+  </div>
+  <div *ngIf="isJpg">
+  <img src="{{image}}" />
+  </div>
+  <div *ngIf="isPng">
+  <img src="{{image}}" />
+  </div>
+  <div *ngIf="isTiff">
+  <img src="{{image}}" />
+  </div>
+  <div *ngIf="isBmp">
+  <img src="{{image}}" />
+  </div>
+
+</ion-content>

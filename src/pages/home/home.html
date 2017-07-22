@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Account Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-grid>
+      <ion-row>
+        <img class="logo">
+      </ion-row>
+    </ion-grid>
+
+  <ion-card *ngIf="loanInfo" style="box-shadow: 0px 26px 87px 13px rgba(152, 154, 162, 0.33);">
+    <ion-card-content>
+      <span class="section">Amount Due</span>
+      <div class="title">${{loanInfo.nextPaymentAmount}}</div>
+      <div class="middle-section">
+        <div class="section"> <span>Account Number:</span><span>{{loanInfo.loanPk}}</span></div>
+        <div class="section"> <span>Principal Balance:</span><span>{{loanInfo.principalBalance}}</span></div>
+        <div class="section"> <span>Due date:</span><span>{{loanInfo.nextDueDate}}</span></div>
+      </div>
+      <button ion-button full round (click)="goToPaymentPage();">Make Payment</button>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="list-cards">
+    <div>
+      <ion-card>
+        <ion-card-content><div class="list-content"><ion-icon name="book"></ion-icon></div>
+          <button (click)="goToTransactionHistoryPage();" class="bottom-buttons">View Payment History</button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div>
+      <ion-card>
+        <ion-card-content><div class="list-content"><ion-icon name="calendar"></ion-icon></div>
+          <button (click)="goToPaymentSchedulePage();"  class="bottom-buttons" >View Payment Schedule</button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div>
+      <ion-card>
+        <ion-card-content><div class="list-content"><ion-icon name="book"></ion-icon></div>
+          <button (click)="goToStatementPage();" class="bottom-buttons">View Loan Documents</button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

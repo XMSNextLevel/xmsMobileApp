@@ -1,0 +1,64 @@
+page-ccInfo {
+
+  .alert-error{
+    border: 1px red solid;
+  }
+
+  ion-card-header{
+    font-weight: bold;
+    font-size: 14px;
+  }
+  ion-item{
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+
+  .input-items{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .inputs{
+    border-radius:5px ;
+    //border: 1px black solid;
+    background-color: #e6eff4;
+    max-width:100%;
+    width: 100%;
+  }
+
+  .cv2{
+    padding-right: 10px;
+  }
+
+
+
+  .expiration-date{
+    width:45%;
+  }
+
+  .cc-type{
+    width:70%;
+    max-width: 70%;
+    margin-left: 10px;
+  }
+
+  .item-inner{
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+  .input-items > div{
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+
+  .bottom-buttons-left{
+    width: 47%;
+  }
+
+  .bottom-buttons-right{
+    width: 47%;
+    float: right;
+  }
+
+}

@@ -1,0 +1,108 @@
+<!--
+Generated template for the PaymentPage page.
+
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Credit Card Information</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #creditcardform="ngForm">
+    <ion-card>
+      <ion-card-header>
+        Card Details
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list no-lines>
+          <ion-item class="input-items">
+            <ion-input name="ccnumber" required type="tel" maxlength="16" placeholder="Credit Card Number" text-center class="inputs" [value]="ccNumber" [(ngModel)]="creditCardInfo.ccNumber"></ion-input>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-label> Expiration Date </ion-label>
+            <!-- need to define max/min month/years for date picker CC-Expiration -->
+            <ion-datetime name="expdate" required placeholder="Month   Year" displayFormat="MMM YYYY" pickerFormat="MMMM YYYY" min="2017" max="2027" class="inputs expiration-date" [(ngModel)]="creditCardInfo.ccExpDate"></ion-datetime>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-input name="cv2" required type="tel" maxlength="4" placeholder="CV2" text-center class="inputs cv2" [value]="ccVV" [(ngModel)]="creditCardInfo.ccVV"></ion-input>
+            <ion-select name="cctype" required placeholder="Credit Card Type" interface="popover" class="inputs cc-type" [(ngModel)]="creditCardInfo.ccType">
+              <ion-option value="VISA">VISA</ion-option>
+              <ion-option value="MASTERCARD">MASTERCARD</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        Card Holder Information
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list no-lines>
+          <div class="input-items" style="display:flex">
+            <ion-item style="width:50%">
+              <ion-input name="firstName" required type="text" placeholder="First Name" class="inputs" [value]="ccFirstName" [(ngModel)]="creditCardInfo.ccFirstName"></ion-input>
+            </ion-item>
+            <ion-item style="width:50%">
+              <ion-input name="lastname" required type="text" placeholder="Last Name" class="inputs" [value]="ccLastName" [(ngModel)]="creditCardInfo.ccLastName"></ion-input>
+            </ion-item>
+          </div>
+          <ion-item class="input-items">
+            <ion-input name="address" required type="text" placeholder="Address 1" class="inputs" [value]="address" [(ngModel)]="creditCardInfo.address"></ion-input>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-input type="text" placeholder="Address 2" class="inputs "></ion-input>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-input name="city" required type="text" placeholder="City" class="inputs" [value]="city" [(ngModel)]="creditCardInfo.city"></ion-input>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-select name="state" required type="text" placeholder="State" interface="popover" class="inputs " [(ngModel)]="creditCardInfo.state">
+              <ion-option *ngFor="let state of states" [value]="state"> {{state}} </ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item class="input-items">
+            <ion-input name="zip" required type="tel" maxlength="5" placeholder="Zip Code" class="inputs" [value]="zip" [(ngModel)]="creditCardInfo.zip"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Payment Details
+    </ion-card-header>
+    <ion-card-content>
+          <ion-list no-lines>
+            <ion-item class="input-items">
+              <ion-label>Amount</ion-label>
+              <ion-input name="paymentAmount" type="number" required placeholder={{amountDue}} text-right class="inputs inputs-right" [value]="paymentAmount" [(ngModel)]="creditCardInfo.paymentAmount"></ion-input>
+            </ion-item>
+          <ion-item class="input-items">
+            <ion-label>Date</ion-label>
+            // need to set the min date here
+            <ion-input name="paymentDate" type="number" placeholder={{todaysDateFormatted}} text-right class="inputs inputs-right" disabled="true"></ion-input>
+            <!-- <ion-datetime displayFormat=“MM/DD/YYYY” placeholder={{todaysDate}}  min=“2017-07-01" max=“2018” class=“” [(ngModel)]=“paymentDate”></ion-datetime> -->
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+
+
+    <ion-card>
+      <ion-card-content>
+        <div>
+          <button ion-button round class="bottom-buttons-left" (click)="cancelCCInfo();">cancel</button>
+          <button ion-button round class="bottom-buttons-right" [disabled]="!creditcardform.form.valid" (click)="submitCCInfo();">Submit</button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+  </form>
+
+
+</ion-content>

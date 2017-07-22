@@ -1,0 +1,154 @@
+page-ach {
+    .alert-error{
+      border: 1px red solid;
+    }
+
+    ion-card-header{
+      font-weight: bold;
+      font-size: 14px;
+    }
+    ion-item{
+      border-bottom: none !important;
+      box-shadow: none !important;
+    }
+
+    .input-items{
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .inputs{
+      border-radius:5px ;
+      //border: 1px black solid;
+      background-color: #e6eff4;
+    }
+
+    .cv2{
+      padding-right: 10px;
+    }
+
+    .inputs-left{
+      width:40%;
+      margin-right: 5px;
+    }
+
+    .inputs-right{
+      width:40%;
+      margin-left: 5px;
+    }
+
+    .expiration-date{
+      width:45%;
+    }
+
+    .months{
+      position:relative;
+      width:70px;
+    }
+    .years{
+      margin-left: 10px;
+      position:relative;
+      width:100px;
+    }
+    .cc-type{
+      width:70%;
+      max-width: 70%;
+      margin-left: 10px;
+    }
+    .item-inner{
+      border-bottom-color: transparent;
+    }
+
+    .input-items > div{
+      border-bottom-color: transparent !important;
+      box-shadow: none !important;
+    }
+    .inputs > input{
+      margin-left: 8px;
+    }
+
+    .bottom-buttons-left{
+      width: 47%;
+    }
+
+    .bottom-buttons-right{
+      width: 47%;
+      float: right;
+    }
+
+    .tabbar{
+      display:block !important;
+    }
+    .title {
+      color: color($colors, primary);
+      font-size: 40px;
+      margin-top: 2%;
+    }
+
+    .middle-section {
+      margin-top: 0%;
+      margin-bottom: 10%;
+    }
+
+    // .font-size{
+    //     font-size: 1.2rem !important;
+    // }
+
+    .section {
+      padding-top: 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      span {
+        margin: 0 0 2px;
+        font-size: 1.4rem;
+        color: #666;
+        vertical-align: middle;
+        line-height: 25px;
+      }
+
+      span:last-child {
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+
+    .bottom-buttons{
+      background-color: white;
+      margin: 0 auto;
+      padding: 0;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .list-cards {
+      display: flex;
+      justify-content: space-between;
+
+      ion-card{
+        height:75%;
+      }
+
+      .list-content {
+        text-align: center;
+
+        div {
+          font-size: 10px !important;
+        }
+      }
+    }
+
+    .list-cards > div{
+      width: 50%;
+    }
+
+    .logo {
+      content: url('../assets/images/logohome.png');
+      width: 60%;
+      height: 60%;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 3%;
+    }
+}
